@@ -292,12 +292,16 @@
       }
     }
 
-  , blur: function (e) {
+   , blur: function (e) {
       var that = this
-      e.stopPropagation()
-      e.preventDefault()
-      setTimeout(function () { that.hide() }, 150)
-    }
+	  e.stopPropagation()
+	  e.preventDefault()
+	  setTimeout(function () {
+	     if (!that.$menu.is(':hover')) {
+	        that.hide();
+	     }
+	  }, 150)
+  }
 
   , click: function (e) {
       e.stopPropagation()
